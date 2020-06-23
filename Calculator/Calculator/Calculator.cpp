@@ -6,7 +6,7 @@
 
 
 
-   Mustafa HATÝPOÐLU
+   Mustafa Hatipoðlu
  
 */
 
@@ -43,6 +43,49 @@ void title ()
     cout << endl;
 
 }
+
+void loading () 
+{
+
+   for (auto i{ 0 }; i < 2; ++i)
+   {
+      cout << "calculating .";
+      Sleep(500);
+      system("cls");
+
+      cout << "calculating ..";
+      Sleep(500);
+      system("cls");
+
+      cout << "calculating ...";
+      Sleep(500);
+      system("cls");
+
+   }
+
+}
+
+void Exit()
+{
+
+   for (auto i{ 0 }; i < 1; ++i)
+   {
+      cout << "exit .";
+      Sleep(500);
+      system("cls");
+
+      cout << "exit ..";
+      Sleep(500);
+      system("cls");
+
+      cout << "exit ...";
+      Sleep(500);
+      system("cls");
+
+   }
+
+}
+
 
 class Term {  // Numbers and operators are stored together. Example : [5+][9*][100+][8]
 
@@ -90,17 +133,6 @@ void addToVector( string& s ) {
 
 }
 
-   // Prints each elements of vector
-void print(const vector<Term>& v)
-{
-   
-   for ( const Term& i : v)
-      cout << i.number << " " << i.operation;
-
-   cout << endl;
-
-
-}
 
   // if there is 1 element and also its operation equals '\0' -> it means calculation has completed
 bool isFinish(const vector<Term>& v)
@@ -163,54 +195,81 @@ void calculate ( vector<Term>& v, const char& op )
 
 }
 
+
+// Prints each elements of vector
+void print(const vector<Term>& v)
+{
+
+   for (const Term& i : v)
+      cout << i.number << " " << i.operation;
+
+   cout << endl;
+
+
+}
+
+
 int main()
 {
- 
-  title();
-  cout << endl << "Input An Equation : " << endl;
-  cin >> sNumbers;
-  system("cls");
+  
+  char decision;
 
-  for ( auto i{0}; i < 2; ++i )  //
-  {
-    
-     cout << "calculating .";
-     Sleep(500);
-     system( "cls" );
-
-     cout << "calculating ..";
-     Sleep(500);
-     system ( "cls" );
-
-     cout << "calculating ...";
-     Sleep(500);
+  while ( 1 )
+  { 
+     title();
+     cout << endl << "Input An Equation : or (for exit press 0)" << endl;
+     cin >> sNumbers;
+     
+     if ( sNumbers == "0" )
+     {
+        system("cls");
+        break;
+        Exit();
+     
+     }
+           
      system("cls");
+     loading();
+      
+     addToVector( sNumbers );
+     
+     calculate( terms, '*' );
+     calculate( terms, '/' );
+     calculate( terms, '+' );
+     calculate( terms, '-' );
+     
+       // Calculation is finish ?
+     if ( isFinish(terms) )
+        cout << "= " << terms[0].number << endl;
+     else
+        cout << "Failed :( " << endl;
+      
+      // Decision section to continue or not
+     
+     cout << "Would you like to make another calculation ? [Y/N]" ;
+     cin >> decision;
+     
+     while ( decision != 'Y' && decision != 'y' && decision != 'N' && decision != 'n' )
+     {
+        system("cls");
+        cout << "!! Please enter Y/N " << endl;
+        cin >> decision;
+     
+     }
 
-  
-  
+
+     if( decision == 'N' || decision == 'n' )
+     {
+        system("cls");
+        Exit();
+        cout << "Have a good day :)" << endl;
+        break;
+     }
+
   }
    
-  addToVector( sNumbers );
-
-  calculate( terms, '*' );
-  //print( terms );
-  calculate( terms, '/' );
-  //print(terms);
-  calculate( terms, '+' );
-  //print(terms);
-  calculate( terms, '-' );
-  //print(terms);
- 
-  if ( isFinish(terms) )
-     cout << "The Answer is : " << endl << terms[0].number << endl;
-  else
-     cout << "Failed :( " << endl << terms[0].number << endl;
-     
-   
        
-      
-  
 
-  
+  return 0;
 }
 
