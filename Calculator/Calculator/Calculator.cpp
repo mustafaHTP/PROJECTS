@@ -4,6 +4,7 @@
 
    Simple Calculator
 
+   !!! Inputs must be like 5+6, 5*9+6, 25/85*9+68-99 ...
 
 
    Mustafa Hatipoðlu
@@ -142,7 +143,13 @@ bool isFinish(const vector<Term>& v)
 
 
 double Multiply ( const double& a, const double& b ){ return a * b; }
-double Divide( const double& a, const double& b ) { return a / b; }
+double Divide( const double& a, const double& b )
+{
+   if ( b == 0 )
+      throw logic_error("Divide by 0 !!!");
+   return a / b; 
+
+}
 double Add( const double& a, const double& b ) { return a + b; }
 double Substract( const double& a, const double& b ) { return a - b; }
 
