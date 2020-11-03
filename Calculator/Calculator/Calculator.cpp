@@ -177,7 +177,7 @@ void calculate ( vector<Term>& v, const char& op )
            else if (op == '-')
               (i + 1)->number = Substract( i->number, (i + 1)->number );
       
-           v.erase ( i );  // After the erase, vector size must reduce by 1
+           v.erase ( i );  // After the operation, vector size must reduce by 1
            ++counter_operator;
            break;
          }
@@ -264,6 +264,7 @@ int main()
      
      }
 
+     system("cls");
 
      if( decision == 'N' || decision == 'n' )
      {
