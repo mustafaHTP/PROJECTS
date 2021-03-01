@@ -45,48 +45,6 @@ void title ()
 
 }
 
-void loading () 
-{
-
-   for (auto i{ 0 }; i < 2; ++i)
-   {
-      cout << "calculating .";
-      Sleep(500);
-      system("cls");
-
-      cout << "calculating ..";
-      Sleep(500);
-      system("cls");
-
-      cout << "calculating ...";
-      Sleep(500);
-      system("cls");
-
-   }
-
-}
-
-void Exit()
-{
-
-   for (auto i{ 0 }; i < 1; ++i)
-   {
-      cout << "exit .";
-      Sleep(500);
-      system("cls");
-
-      cout << "exit ..";
-      Sleep(500);
-      system("cls");
-
-      cout << "exit ...";
-      Sleep(500);
-      system("cls");
-
-   }
-
-}
-
 
 class Term {  // Numbers and operators are stored together. Example : [5+][9*][100+][8]
 
@@ -231,12 +189,12 @@ int main()
      if ( sNumbers.size() == 1 )
      {
         system("cls");
-        Exit();
+        
         break;     
      }
            
      system("cls");
-     loading();
+     
       
      addToVector( sNumbers );
      
@@ -269,7 +227,6 @@ int main()
      if( decision == 'N' || decision == 'n' )
      {
         system("cls");
-        Exit();
         cout << "Have a good day :)" << endl;
         break;
      }
