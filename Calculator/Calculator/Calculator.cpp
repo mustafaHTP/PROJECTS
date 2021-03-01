@@ -96,7 +96,7 @@ class Term {  // Numbers and operators are stored together. Example : [5+][9*][1
 
 };
 
-
+// inputs
 string sNumbers;  
 vector <Term> terms;
 
@@ -227,12 +227,12 @@ int main()
      cout << endl << "Input An Equation : or (for exit press 0)" << endl;
      cin >> sNumbers;
      
-     if ( sNumbers == "0" )
+     // if there is an only a number , then finish
+     if ( sNumbers.size() == 1 )
      {
         system("cls");
-        break;
         Exit();
-     
+        break;     
      }
            
      system("cls");
